@@ -5,6 +5,9 @@ from rest_framework.response import Response
 @api_view(['POST'])
 def convert_units(request):
     value = float(request.data.get('value'))
+    if value is None: 
+        return Response({"error": "Value is required"}, status=400)
+    value = float(value)
     from_unit = request.data.get('from_unit')
     to_unit = request.data.get('to_unit')
     category = request.data.get('category')
@@ -19,7 +22,7 @@ def convert(value, from_unit, to_unit, category):
         "milimeter": 0.001,
         "centimeter": 0.01,
         "meter" : 1,
-        "Kilometer": 1000,
+        "kilometer": 1000,
         "inch": 0.0254,
         "foot": 0.3048,
         "yard": 0.9144,

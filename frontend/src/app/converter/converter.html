@@ -2,20 +2,21 @@
 
 <input type="number" [(ngModel)]="value" placeholder="Enter value">
 
-<select [(ngModel)]="category">
+<select [(ngModel)]="category" (change)="onCategoryChange()">
     <option value="length">Length</option>
     <option value="weight">Weight</option>
     <option value="temperature">Temperature</option>
 </select>
 
-<select [(ngModel)]="from_unit">
+<select [(ngModel)]="from_unit" (ngModelChange)="onChange()">
     <option *ngFor="let u of units[category]" [value]="u">{{u}}</option>
 </select>
 
-<select [(ngModel)]="to_unit">
+<select [(ngModel)]="to_unit" (ngModelChange)="onChange()">
     <option *ngFor="let u of units[category]" [value]="u">{{u}}</option>
 </select>
 
-<button (click)="convert()">Convert</button>
+
+<button (click)="convert()" type="button">Convert</button>
 
 <h3 *ngIf="result">Result: {{result}}</h3>
