@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './converter.html',
-  // styleUrl: './converter.css',
+  styleUrl: './converter.css',
 })
 export class Converter implements OnInit{
   value: number = 0;

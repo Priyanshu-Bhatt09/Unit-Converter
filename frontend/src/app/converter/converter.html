@@ -1,22 +1,37 @@
-<h2>Unit Converter</h2>
+<div class="min-h-screen flex items-center justify-center bg-gray-800">
 
-<input type="number" [(ngModel)]="value" placeholder="Enter value">
+<div class=" bg-white shadow-xl rounded-xl p-6 space-y-4">
+<h2 class="text-2xl font-bold text-center text-gray-700">Unit Converter</h2>
 
-<select [(ngModel)]="category" (change)="onCategoryChange()">
+<input type="number" [(ngModel)]="value" placeholder="Enter value"
+class="w-full p-3 rounded-lg focus:outline-none border-blue-500 border-2"
+>
+
+<select [(ngModel)]="category" (change)="onCategoryChange()"
+class="w-full p-3 rounded-lg border-blue-500 border-2"
+>
     <option value="length">Length</option>
     <option value="weight">Weight</option>
     <option value="temperature">Temperature</option>
 </select>
 
-<select [(ngModel)]="from_unit" (ngModelChange)="onChange()">
+<select [(ngModel)]="from_unit" (ngModelChange)="onChange()"
+class="w-full p-3 rounded-lg border-blue-500 border-2"
+>
     <option *ngFor="let u of units[category]" [value]="u">{{u}}</option>
 </select>
 
-<select [(ngModel)]="to_unit" (ngModelChange)="onChange()">
+<select [(ngModel)]="to_unit" (ngModelChange)="onChange()"
+class="w-full p-3 rounded-lg border-blue-500 border-2"
+>
     <option *ngFor="let u of units[category]" [value]="u">{{u}}</option>
 </select>
 
 
-<button (click)="convert()" type="button">Convert</button>
+<!-- <button (click)="convert()" type="button">Convert</button> -->
 
-<h3 *ngIf="result">Result: {{result}}</h3>
+<h3 *ngIf="result"
+class="text-center text-lg font-semibold text-red-800"
+>Result: {{result}}</h3>
+</div>
+</div>
